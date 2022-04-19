@@ -1,0 +1,44 @@
+### Questions
+
+1. What is responsible for defining the routes of the `games` resource?
+
+ The gamesRouter which takes advantage of the create_router.js. 
+
+2. What do you notice about the folder structure?  Whats the client responsible for? Whats the server responsible for?
+
+The folder is sperated into the client and server directories. 
+The client is responsible for the front end (collecting data and rendering the page) and the server is responsible for the back end (connecting with the database, and defining the routes). 
+
+3. What are the the responsibilities of server.js?
+
+The server.js provides the interaction between the user and and the game. It establishes the connection with the database, returning the collection of data ('games'), and then creating the router. 
+
+4. What are the responsibilities of the `gamesRouter`?
+
+Establishing the routes for post, get, put and delete using the create_router.js.  
+
+5. What process does the the client (front-end) use to communicate with the server?
+
+In GamesService.js, getGames fetches data from the baseURl which is defined as 'http://localhost:5000/api/games/' 
+
+6. What optional second argument does the `fetch` method take? And what is it used for in this application? Hint: See [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) on the MDN docs
+
+An object with custom settings, and for this application it applies the post method to the request.
+
+7. Which of the games API routes does the front-end application consume (i.e. make requests to)?
+
+Within the GamesService, the front-end requests three routes:
+-GET, which fetches the data from the database
+-POST, which creates the game
+-DELETE, which deletes the game 
+
+8. What are we using the [MongoDB Driver](http://mongodb.github.io/node-mongodb-native/) for?
+
+Allows Node.js applications to connect to MongoDB and work with data.
+
+
+## Extension
+
+Why do we need to use [`ObjectId`](https://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html) from the MongoDB driver?
+
+It's an automatically generated key which allows you to use a unique identifier. 
